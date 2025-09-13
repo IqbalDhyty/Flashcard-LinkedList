@@ -54,5 +54,14 @@ public class Main {
                 i++;
             } while (Bantu != Awal);
         }
+
+
+        /*
+         * TODO:
+         * Buat Method untuk iterasi melalui semua kartu, pastikan pengguna bisa berhenti di setiap kartu, lalu bisa memilih untuk ke kartu sebelumnya dan setelahnya
+         * Pastikan pengguna juga dapat keluar dari mode melihat kartu
+         * TODO:
+         * Buat interface agar pengguna bisa berinteraksi dengan fungsi melihat kartu, dan juga untuk menambahkan kartu di bagian akhir
+         */
     }
 }
