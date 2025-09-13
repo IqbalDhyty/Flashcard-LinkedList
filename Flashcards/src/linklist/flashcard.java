@@ -59,6 +59,7 @@ public class flashcard {
      * @param Definisi Array mengandung definsi untuk kata tersebut
      * @param Awal variabel node awal dari linked list
      * @param Akhir variabel node akhir dari linked list
+     * @return Awal dari list agar bisa dilakukan iterasi pada list untuk program
      */
     public static flashcard inisialisasiKartuAwal(String[] Kata, String[] Definisi, flashcard Awal, flashcard Akhir) {
         // Loop melalui satu array
@@ -83,6 +84,39 @@ public class flashcard {
                 Akhir = nodeBaru;                    // Akhir menjadi node baru   
             }
         }
+
+        // Return Awal untuk melakukan traversal melalui list
+        return Awal;
+    }
+
+    /**
+     * Method untuk menambah 
+     * @param Kata Kata yang ingin ditambahkan kartu
+     * @param Definisi .
+     * @param Awal Awal dari linoked list, digunakan untuk menentukkan jika list kosong, dan juga untuk memanipulasi node akhir
+     * @return Awal dari list agar bisa dilakukan iterasi pada list untuk program
+     */
+    public static flashcard tambahkanKartuAkhir(String Kata, String Definisi, flashcard Awal) {
+        
+        // Ciptakan kartu baru
+        flashcard nodeBaru = new flashcard(Kata, Definisi);
+
+        // Jika List Kosong (Tidak mungkin terjadi selagi menjalankan method inisialisasi kartu di awal)
+        if (Awal == null) {
+            nodeBaru.setflashcardSetelah(nodeBaru);
+            nodeBaru.setflashcardSebelum(nodeBaru);
+            return nodeBaru;
+        }
+
+        // Jika tidak kosong maka ciptkan referensi untuk node akhir
+        flashcard Akhir = Awal.getflashcardSebelum();
+        
+        nodeBaru.setflashcardSetelah(Awal);  // flashcardSetelah node baru adalah Awal List (Circular)
+        nodeBaru.setflashcardSebelum(Akhir); // flashcardSebelum node baru adalah Akhir yang lama
+        Akhir.setflashcardSetelah(nodeBaru); // flashCardSetelah dari Akhir yang lama menunjuk ke nodeBaru
+        Awal.setflashcardSebelum(nodeBaru);  // flashCardSebelum dari Awal menunjuk ke nodeBaru (Circular)
+
+        // Return Awal untuk melakukan traversal melalui list
         return Awal;
     }
 }
