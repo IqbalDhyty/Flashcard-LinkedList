@@ -44,22 +44,22 @@ public class Main {
         // Inisialisasi kartu-kartu awal
         Awal = flashcard.inisialisasiKartuAwal(daftarKata, daftarDefinisi, Awal, Akhir);
 
-        // TEST, cek jika method tambahkan kartu bekerja
-        Awal = flashcard.tambahkanKartuAkhir("Vicious", "having the nature of evildoing", Awal);
+        // // TEST, cek jika method tambahkan kartu bekerja
+        // Awal = flashcard.tambahkanKartuAkhir("Vicious", "having the nature of evildoing", Awal);
         
-        // TEST, melihat jika kartu berhasil diinisialisasi di method inisialisasiKartuAwal dan tambahkanKartuAkhir
-        if (Awal != null) {
-            flashcard Bantu = Awal;
-            int i = 1;
-            do {
-                System.out.println("Kartu " + i + ": " + Bantu.getKata() + " - " + Bantu.getDefinisi());
-                Bantu = Bantu.getflashcardSetelah();
-                i++;
-            } while (Bantu != Awal);
-        }
+        // // TEST, melihat jika kartu berhasil diinisialisasi di method inisialisasiKartuAwal dan tambahkanKartuAkhir
+        // if (Awal != null) {
+        //     flashcard Bantu = Awal;
+        //     int i = 1;
+        //     do {
+        //         System.out.println("Kartu " + i + ": " + Bantu.getKata() + " - " + Bantu.getDefinisi());
+        //         Bantu = Bantu.getflashcardSetelah();
+        //         i++;
+        //     } while (Bantu != Awal);
+        // }
 
-        // TEST, meihat jika fungsi melihat semua kartu fungsional
-        flashcard.lihatSemuaKartu(Awal);
+        // // TEST, meihat jika fungsi melihat semua kartu fungsional
+        // flashcard.lihatSemuaKartu(Awal);
 
         //INTERFACE MENU
         while (true) {
