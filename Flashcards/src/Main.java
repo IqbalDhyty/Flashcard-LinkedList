@@ -35,7 +35,6 @@ public class Main {
         "having the nature of evildoing"
     };
     public static void main(String[] args) throws Exception {
-        
         // Inisialisasi objek flashcard untuk penciptaan list
         flashcard Awal = null, Akhir = null;
 
@@ -56,42 +55,9 @@ public class Main {
             } while (Bantu != Awal);
         }
 
-        lihatSemuaKartu(Awal);
+        // TEST, meihat jika fungsi melihat semua kartu fungsional
+        flashcard.lihatSemuaKartu(Awal);
 
-        System.out.println("Terima kasih telah menggunakan program flashcard!");
-
-
+        flashcard.lihatSemuaKartu(Awal);
    }
-    public static void lihatSemuaKartu(flashcard kartuSaatIni) {
-        if (kartuSaatIni == null) {
-            System.out.println("Tidak ada kartu untuk ditampilkan.");
-            return;
-        }
-
-        Scanner input = new Scanner(System.in);
-        String pilihan;
-
-        while (true) {
-            // Mengdisplay kartu saat ini
-            System.out.println("\n==============================");
-            System.out.println("Kata: " + kartuSaatIni.getKata());
-            System.out.println("Definisi: " + kartuSaatIni.getDefinisi());
-            System.out.println("==============================");
-
-            // Opsi kepada user
-            System.out.print("Pilihan: (N)ext, (P)revious, (K)eluar -> ");
-            pilihan = input.nextLine().toUpperCase();
-
-            if (pilihan.equals("N")) {
-                kartuSaatIni = kartuSaatIni.getflashcardSetelah(); // kartu selanjuutnya
-            } else if (pilihan.equals("P")) {
-                kartuSaatIni = kartuSaatIni.getflashcardSebelum(); // kartu sebelumnya
-            } else if (pilihan.equals("K")) {
-                System.out.println("Kembali ke menu utama...");
-                break; //keluar 
-            } else {
-                System.out.println("Pilihan tidak valid, silakan coba lagi.");
-            }
-        }
-    }
 }

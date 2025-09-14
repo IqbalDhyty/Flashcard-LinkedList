@@ -1,5 +1,7 @@
 package linklist;
 
+import java.util.Scanner;
+
 /* 
  *   Class untuk node linkedlist pada program utama
  *   Diciptakan untuk membuat circular doubly linked list
@@ -90,7 +92,7 @@ public class flashcard {
     }
 
     /**
-     * Method untuk menambah 
+     * Method untuk menambah kartu kepada akhir linked list
      * @param Kata Kata yang ingin ditambahkan kartu
      * @param Definisi .
      * @param Awal Awal dari linoked list, digunakan untuk menentukkan jika list kosong, dan juga untuk memanipulasi node akhir
@@ -118,5 +120,43 @@ public class flashcard {
 
         // Return Awal untuk melakukan traversal melalui list
         return Awal;
+    }
+
+
+    /**
+     * Method untuk melihat seluruh kartu pada linked list, pengguna akan memasuki infinite loop dengan tiga opsi, melihat kartu setelah, melihat kartu sebelumnya, dan keluar dari loop
+     * @param kartuSaatIni kartu pertama yang akan digunakan sebagai dasar dari loop pengguna
+     */
+    public static void lihatSemuaKartu(flashcard kartuSaatIni) {
+        if (kartuSaatIni == null) {
+            System.out.println("Tidak ada kartu untuk ditampilkan.");
+            return;
+        }
+
+        String pilihan;
+        Scanner input = new Scanner(System.in);
+
+        while (true) {
+            // Mengdisplay kartu saat ini
+            System.out.println("\n==============================");
+            System.out.println("Kata: " + kartuSaatIni.getKata());
+            System.out.println("Definisi: " + kartuSaatIni.getDefinisi());
+            System.out.println("==============================");
+
+            // Opsi kepada user
+            System.out.print("Pilihan: (N)ext, (P)revious, (K)eluar -> ");
+            pilihan = input.nextLine().toUpperCase();
+
+            if (pilihan.equals("N")) {
+                kartuSaatIni = kartuSaatIni.getflashcardSetelah(); // kartu selanjuutnya
+            } else if (pilihan.equals("P")) {
+                kartuSaatIni = kartuSaatIni.getflashcardSebelum(); // kartu sebelumnya
+            } else if (pilihan.equals("K")) {
+                System.out.println("Kembali ke menu utama...");
+                break; //keluar 
+            } else {
+                System.out.println("Pilihan tidak valid, silakan coba lagi.");
+            }
+        }
     }
 }
