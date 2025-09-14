@@ -35,6 +35,9 @@ public class Main {
         "having the nature of evildoing"
     };
     public static void main(String[] args) throws Exception {
+
+        Scanner input = new Scanner(System.in);
+
         // Inisialisasi objek flashcard untuk penciptaan list
         flashcard Awal = null, Akhir = null;
 
@@ -58,6 +61,44 @@ public class Main {
         // TEST, meihat jika fungsi melihat semua kartu fungsional
         flashcard.lihatSemuaKartu(Awal);
 
-        flashcard.lihatSemuaKartu(Awal);
+        //INTERFACE MENU
+        while (true) {
+            //==============================
+            System.out.println("\n====== Flashcards Menu ======");
+            System.out.println("1. Add new card");
+            System.out.println("2. see all cards");
+            System.out.println("3. Exit");
+            System.out.println("=============================");
+            System.out.print("Select menu (enter 1/2/3): ");
+            String pilihan = input.nextLine();
+
+            switch (pilihan) {
+                case "1":
+                    //memasukkan isi flashcard
+                    System.out.print("Enter word (in English): ");
+                    String kata = input.nextLine();
+                    System.out.print("Enter the definition: ");
+                    String definisi = input.nextLine();
+                    Awal = flashcard.tambahkanKartuAkhir(kata, definisi, Awal);
+                    System.out.println("Good, ur card added succesfully");
+                    break;
+
+                case "2":
+                    //melihat semua kartu
+                    flashcard.lihatSemuaKartu(Awal);
+                    break;
+
+                case "3":
+                    //keluar
+                    System.out.println("Out from program, see you!!");
+                    input.close();
+                    return;
+
+                default:
+                    System.out.println("Pilihan tidak valid.");
+                    break;
+            }
+        }
+
    }
 }
